@@ -7,11 +7,12 @@ public class Problem9 {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url="jdbc:mysql://localhost:3306/classicmodels?characterEncoding=utf8";
 			Connection conn=DriverManager.getConnection(url,"Batch63User","Batch632022.");
-			Statement smt=conn.createStatement();
-			ResultSet set=smt.executeQuery("Select * from students");
-			while(set.next()) {
-				System.out.println(set.getString(2));
-			}
+			PreparedStatement smt=conn.prepareStatement("Insert into students(stno,stname,email)values(?,?,?)");
+			smt.setInt(1, 7);
+			smt.setString(2, "Jack");
+			smt.setString(3, "jackson@abcmail.com");
+			smt.execute();
+			System.out.println("Record Inserted.");
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
