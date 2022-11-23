@@ -15,12 +15,12 @@ public class Problem8 {
 	 		mid = (min + max)/2;  
 	 	}  
      	if ( min > max ){  
-     		System.out.println("Element is not found!");  
+     		System.out.println("Element could not be found.");  
      	}  
 	}
 	public static void main(String[]args) {
 		int[]arr= {9,4,7,3,8,12,15,13,24};
-		new Problem8().binarySearch(arr,0,arr.length-1,15);
+		new Problem8().binarySearch(arr,0,arr.length-1,16);
 		
 	}
 
