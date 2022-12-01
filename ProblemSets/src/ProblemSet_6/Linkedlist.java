@@ -1,5 +1,7 @@
 package ProblemSet_6;
 
+import java.util.Collections;
+
 public class Linkedlist {
 	Node head=null;
 	public class Node{
@@ -20,14 +22,17 @@ public class Linkedlist {
 			current.next=new Node(number);
 		}
 	}
-	public void removeDuplicates() {
-		Node temp=head;
-		while(temp!=null) {
-			if(temp.number==temp.next.number) {
-				head=temp.next;
-			}
-		}
-	}
+	public void removeDuplicates(){
+        Node current = head;
+        while (current != null) {
+            Node temp = current;
+            while(temp!=null && current.number==temp.number) {
+                temp = temp.next;
+            } 
+            current.next = temp;
+            current = current.next;
+        }
+    }
 	public void deleteElement(int num) {
 		Node current=head;
 		Node prev=null;
@@ -52,10 +57,10 @@ public class Linkedlist {
 	public static void main(String[]args) {
 		Linkedlist obj=new Linkedlist();
 		obj.addElementatEnd(5);
+		obj.addElementatEnd(5);
 		obj.addElementatEnd(2);
 		obj.addElementatEnd(3);
 		obj.addElementatEnd(3);
-		obj.addElementatEnd(5);
 		obj.display();
 		obj.deleteElement(2);
 		obj.display();
