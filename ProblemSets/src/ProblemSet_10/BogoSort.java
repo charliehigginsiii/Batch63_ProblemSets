@@ -12,15 +12,13 @@ public class BogoSort {
 				for(int j=i+1;j<arr.length;j++) {
 					if(arr[j]<arr[i]) {
 						int randomnum=new Random().nextInt(0,arr.length-1);
-						System.out.println("If"+arr[j]+" "+arr[i]);
 						int temp=arr[randomnum];
 						arr[randomnum]=arr[i];
 						arr[i]=temp;
 						booleanList.clear();
 						booleanList.add("false");
 					}else {
-						System.out.println("Else"+arr[j]+" "+arr[i]);
-						if(booleanList.size()>0&&!booleanList.get(0).equals("start")) {
+						if(booleanList.size()>0) {
 							booleanList.remove(booleanList.size()-1);
 						}
 					}
